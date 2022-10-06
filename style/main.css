@@ -35,17 +35,17 @@ button{
     font-size: 50px;
     cursor: pointer;
    
-    background-color: rgb(163, 152, 132);
+    background-color: rgb(198, 158, 117);
     border: 1px solid black;
 
 }
 .button-fade-out{
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
 
     animation-name: fade-out;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 .game-status-div{
@@ -75,7 +75,7 @@ button{
     text-align: center;
 
     animation-name: pop-up;
-    animation-duration: 1s;
+    animation-duration: 1.5s;
 }
 .game-status-div p{
     font-size: 30px;
@@ -104,7 +104,7 @@ button{
     position: relative;
     opacity: 0;
     animation-name: heart-dies;
-    animation-duration: 2s;
+    animation-duration: 1.1s;
     animation-timing-function: ease-in-out;
 }
 
@@ -124,7 +124,7 @@ button{
         opacity: 1;
     }
     to{
-        opacity: 0.5;
+        opacity: 0.4;
     }
 }
 
