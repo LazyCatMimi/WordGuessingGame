@@ -31,7 +31,7 @@ h2{
 /*buttons*/
 button{
     width: 200px; 
-    height: 100px;
+    height: 110px;
     font-size: 50px;
     cursor: pointer;
    
@@ -74,7 +74,7 @@ button{
     text-align: center;
 
     animation-name: pop-up;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
 }
 .game-status-div p{
     font-size: 30px;

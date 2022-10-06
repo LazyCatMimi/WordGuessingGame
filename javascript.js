@@ -7,10 +7,10 @@ var lives = 6;
 //populate _'s for the answer display
 displayAns("_");
 
-//troubleshooting
-//console.log(correctAns);
+//create buttons and event listeners
+addInputButtons();
 
-eventListeners();
+//create hearts
 addHearts()
 
 /*----functions----*/
@@ -20,8 +20,26 @@ function addHearts(){ //add hearts (lives) to HTML
         elem.setAttribute("src","assets/images/heart.png");
         elem.classList.add("life" + (i + 1));
         document.getElementsByClassName('hearts')[0].appendChild(elem);
-        
     }
+}
+
+function addInputButtons(){
+    for (var i = 97; i <= 122; i++){
+        (function(i){
+            var elem = document.createElement("button");
+            var letter = String.fromCharCode(i);
+            
+            //class and HTML attributes
+            elem.classList.add(letter);
+            elem.innerHTML = letter.toUpperCase();
+
+            //on click event listener
+            elem.addEventListener("click",function(){letterAns(letter);}, false);
+            //make the lement
+            document.getElementsByClassName('btn-ans-div')[0].appendChild(elem);
+        }(i))
+    }
+    document.getElementsByClassName("replay")[0].addEventListener("click", function(){window.location.reload();});
 }
 
 function takelife(){ //animate hearts if answer is wrong, end game if lives==0
@@ -95,35 +113,4 @@ function endGame(status){
         document.getElementsByClassName('game-status')[0].innerHTML ="YOU LOST";
     }
     document.getElementsByClassName('wordAns')[0].innerHTML = "The word was: " + correctAns;
-}
-
-//buttons
-function eventListeners(){
-    document.getElementsByClassName("a")[0].addEventListener("click", function(){letterAns("a")}); 
-    document.getElementsByClassName("b")[0].addEventListener("click", function(){letterAns("b")});
-    document.getElementsByClassName("c")[0].addEventListener("click", function(){letterAns("c")});
-    document.getElementsByClassName("d")[0].addEventListener("click", function(){letterAns("d")});
-    document.getElementsByClassName("e")[0].addEventListener("click", function(){letterAns("e")});
-    document.getElementsByClassName("f")[0].addEventListener("click", function(){letterAns("f")});
-    document.getElementsByClassName("g")[0].addEventListener("click", function(){letterAns("g")});
-    document.getElementsByClassName("h")[0].addEventListener("click", function(){letterAns("h")});
-    document.getElementsByClassName("i")[0].addEventListener("click", function(){letterAns("i")});
-    document.getElementsByClassName("j")[0].addEventListener("click", function(){letterAns("j")});
-    document.getElementsByClassName("k")[0].addEventListener("click", function(){letterAns("k")});
-    document.getElementsByClassName("l")[0].addEventListener("click", function(){letterAns("l")});
-    document.getElementsByClassName("m")[0].addEventListener("click", function(){letterAns("m")});
-    document.getElementsByClassName("n")[0].addEventListener("click", function(){letterAns("n")});
-    document.getElementsByClassName("o")[0].addEventListener("click", function(){letterAns("o")});
-    document.getElementsByClassName("p")[0].addEventListener("click", function(){letterAns("p")});
-    document.getElementsByClassName("q")[0].addEventListener("click", function(){letterAns("q")});
-    document.getElementsByClassName("r")[0].addEventListener("click", function(){letterAns("r")});
-    document.getElementsByClassName("s")[0].addEventListener("click", function(){letterAns("s")});
-    document.getElementsByClassName("t")[0].addEventListener("click", function(){letterAns("t")});
-    document.getElementsByClassName("u")[0].addEventListener("click", function(){letterAns("u")});
-    document.getElementsByClassName("v")[0].addEventListener("click", function(){letterAns("v")});
-    document.getElementsByClassName("w")[0].addEventListener("click", function(){letterAns("w")});
-    document.getElementsByClassName("x")[0].addEventListener("click", function(){letterAns("x")});
-    document.getElementsByClassName("y")[0].addEventListener("click", function(){letterAns("y")});
-    document.getElementsByClassName("z")[0].addEventListener("click", function(){letterAns("z")});
-    document.getElementsByClassName("replay")[0].addEventListener("click", function(){window.location.reload();});
 }
