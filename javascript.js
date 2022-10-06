@@ -1,5 +1,5 @@
 //randomly chooses a word
-var randAnswer = ["acetaminophen", "word", "super", "origami", "controller", "tree", "elephant", "computer"];
+var randAnswer = ["acetaminophen", "word", "super", "origami", "controller", "tree", "elephant", "computer", "calendar"];
 var correctAns = randAnswer[Math.floor(Math.random() * randAnswer.length)];
 var inputtedLetters = [];
 var lives = 6;
@@ -87,7 +87,8 @@ function letterAns(letter){
             found = true;
             console.log("letter found");
             inputtedLetters.push(letter);
-            displayAns(inputtedLetters)
+            displayAns(inputtedLetters);
+            break;
         }
     }
     if (!found)
