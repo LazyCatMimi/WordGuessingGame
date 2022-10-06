@@ -11,45 +11,29 @@ displayAns("_");
 //console.log(correctAns);
 
 eventListeners();
+addHearts()
 
-
-
-function takelife(){
-    switch(lives){
-        case 1:
-            var heartElement = document.getElementsByClassName('life1')[0];
-            heartElement.classList.add("heart-dies"); 
-            lives--;
-            endGame("lost");
-            break;
-        case 2:
-            var heartElement = document.getElementsByClassName('life2')[0];
-            heartElement.classList.add("heart-dies"); 
-            lives--;
-            break;
-        case 3:
-            var heartElement = document.getElementsByClassName('life3')[0];
-            heartElement.classList.add("heart-dies"); 
-            lives--;
-            break;        
-        case 4:
-            var heartElement = document.getElementsByClassName('life4')[0];
-            heartElement.classList.add("heart-dies"); 
-            lives--;
-            break;
-        case 5:
-            var heartElement = document.getElementsByClassName('life5')[0];
-            heartElement.classList.add("heart-dies"); 
-            lives--;
-            break;
-        case 6:
-            var heartElement = document.getElementsByClassName('life6')[0]; 
-            heartElement.classList.add("heart-dies");            
-            lives--;
-            break;
+/*----functions----*/
+function addHearts(){ //add hearts (lives) to HTML
+    for (var i = 0; i < lives; i++){
+        var elem = document.createElement("img");
+        elem.setAttribute("src","assets/images/heart.png");
+        elem.classList.add("life" + (i + 1));
+        document.getElementsByClassName('hearts')[0].appendChild(elem);
+        
     }
 }
 
+function takelife(){ //animate hearts if answer is wrong, end game if lives==0
+    var lifeToRemove = document.getElementsByClassName("life" + lives)[0];
+    lifeToRemove.classList.add("heart-dies"); 
+    lives--;
+    if(lives == 0){
+        endGame("lost");
+    }
+}
+
+//display the word on screen, update as user gets right
 function displayAns(inputtedLetters){
     var finalStr = "";
     var element = document.getElementsByClassName("answer")[0];
@@ -75,6 +59,7 @@ function displayAns(inputtedLetters){
     }
 }
 
+//each input for letter
 function letterAns(letter){
     //modify button to fade
     var element = document.getElementsByClassName(letter)[0];
@@ -94,15 +79,13 @@ function letterAns(letter){
     if (!found)
     {
         console.log("letter not found");
+        //takelife();
         takelife();
     }
     
 }
 
-function answerAttempt(){
-    answerAttempt.toLowerCase();
-}
-
+//game ends
 function endGame(status){
     document.getElementsByClassName('game-status-div')[0].style.display = "block";
     if (status == "win"){
@@ -114,6 +97,7 @@ function endGame(status){
     document.getElementsByClassName('wordAns')[0].innerHTML = "The word was: " + correctAns;
 }
 
+//buttons
 function eventListeners(){
     document.getElementsByClassName("a")[0].addEventListener("click", function(){letterAns("a")}); 
     document.getElementsByClassName("b")[0].addEventListener("click", function(){letterAns("b")});

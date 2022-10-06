@@ -37,6 +37,7 @@ button{
    
     background-color: rgb(198, 158, 117);
     border: 1px solid black;
+    transition-duration:1s;
 
 }
 .button-fade-out{
@@ -44,8 +45,6 @@ button{
     cursor: not-allowed;
     pointer-events: none;
 
-    animation-name: fade-out;
-    animation-duration: 1s;
 }
 
 .game-status-div{
@@ -86,12 +85,6 @@ button{
     margin: 50px auto;
 }
 
-.disabled-button{
-    opacity:0.6;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
 
 .hang-man-div{
     background-color: rgb(251, 243, 231);
@@ -119,14 +112,6 @@ button{
     }
 }
 
-@keyframes fade-out{
-    from{
-        opacity: 1;
-    }
-    to{
-        opacity: 0.4;
-    }
-}
 
 @keyframes heart-dies{
     from{
@@ -136,5 +121,12 @@ button{
     to{
         opacity:0;
         top: 50px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    button{
+        width: 300px;
+        border: 10px;
     }
 }
