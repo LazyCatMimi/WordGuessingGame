@@ -61,7 +61,7 @@ button{
     position: fixed; 
     display: inherit; 
     width: 50%; 
-    height: 50%; 
+    height: 40%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -103,15 +103,14 @@ button{
 
 @keyframes pop-up{
     from{
-        width: 10%;
-        height: 10%;
+        width: 30%;
+        height: 0;
     }
     to{
         width: 50%;
-        height: 50%;
+        height: 40%;
     }
 }
-
 
 @keyframes heart-dies{
     from{
@@ -124,9 +123,13 @@ button{
     }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 650px){
     button{
         width: 300px;
         border: 10px;
+
+    }
+    .btn-ans-div{
+        margin:0 -50px;
     }
 }
