@@ -53,8 +53,6 @@ button:hover{
     pointer-events: none;
 
 }
-
-
 .game-status-div{
     position: fixed; 
     display: none; 
@@ -131,16 +129,15 @@ button:hover{
     }
 }
 
-@media screen and (max-width: 650px){
+@media screen and (max-width: 1000px){
     body{
         margin:0;
     }
     button{
         width: 300px;
+        height: 110px;
         border: 2px solid black;
-
     }
-
     .game-status-div div{
         height:30%;
     }
